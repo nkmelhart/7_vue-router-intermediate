@@ -26,7 +26,7 @@ const routes = [
         path: '/Secret', component: Secret,
         beforeEnter: (to, from) => {
             if (isAuthenticated.value) return true
-            return '/login'
+            return '/Login'
         },
     },
     {
@@ -39,5 +39,4 @@ export const router = createRouter({
     mode: 'history',
     history: createWebHistory(),
     routes
-}
-)
+})

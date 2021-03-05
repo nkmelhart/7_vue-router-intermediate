@@ -6,17 +6,32 @@
     </Main>
 </div> -->
 
-<Navbar />
+<Navbar v-if="amIInLogout === false"/>
     <Main>
       <router-view />
     </Main>
   
 </template>
 
-<script setup>
+<script>
 
 import Navbar from './components/Navbar.vue'
 import Main from './components/Main.vue'
+import { isInLogout } from './helpers/inLogout.js'
+
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+    Main,
+    isInLogout,
+  },
+  computed: {
+    amIInLogout() {
+      return isInLogout.value
+    }
+  }
+}
 
 </script>
 
